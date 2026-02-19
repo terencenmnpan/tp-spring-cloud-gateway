@@ -27,7 +27,7 @@ spring:
                 - TokenRelay= # This is the magic line
                 - RemoveRequestHeader=Cookie # Don't leak the session cookie to AWS
             - id: local-api
-              uri: http://localhost:8081
+              uri: ${LOCAL_BACKEND_URL:http://localhost:8081}
               predicates:
                 - Path=/api/lo/**
               filters: # This regex captures everything after /api/lo/ and puts it after /api/
